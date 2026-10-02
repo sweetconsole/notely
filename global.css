@@ -12,7 +12,8 @@
 
 		--color-accent: #D9614C;
 		--color-success: #4A9B6E;
-		--color-error: #D99A2B;
+		--color-warning: #D99A2B;
+		--color-error: #C0392B;
 	}
 
 	.dark:root {
