@@ -1,21 +1,24 @@
 import { Image, Pressable, Text, View } from "react-native"
-import { useColorScheme } from "nativewind"
-import { SafeAreaView } from "react-native-safe-area-context"
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context"
 import { Menu, Search } from "../components/icons"
+import ThemedIcon from "../components/ThemedIcon"
+import { Link } from "expo-router"
+import { useColorScheme } from "nativewind"
 
 const Index = () => {
 	const { colorScheme, setColorScheme } = useColorScheme()
+	const insets = useSafeAreaInsets()
 
-	const toggleTheme = () => {
-		const newTheme = colorScheme === "light" ? "dark" : "light"
-		setColorScheme(newTheme)
-	}
+	setColorScheme("dark")
 
 	return (
-		<SafeAreaView className="flex-1 bg-background px-7">
+		<SafeAreaView
+			className={`flex-1 bg-background px-7`}
+			style={{ paddingBottom: insets.bottom }}
+		>
 			<View className="flex flex-row justify-between items-center py-4">
 				<Pressable>
-					<Menu />
+					<ThemedIcon icon={Menu} />
 				</Pressable>
 
 				<Text className="font-nunito-black text-[14px] text-primary">
@@ -23,7 +26,7 @@ const Index = () => {
 				</Text>
 
 				<Pressable>
-					<Search />
+					<ThemedIcon icon={Search} />
 				</Pressable>
 			</View>
 
@@ -42,12 +45,14 @@ const Index = () => {
 				</Text>
 			</View>
 
-			<View className="absolute w-full bottom-8 left-7">
-				<Pressable className="py-6 w-full bg-accent rounded-xl">
-					<Text className="font-nunito-black text-xl text-surface text-center">
-						Create A Note
-					</Text>
-				</Pressable>
+			<View className="absolute w-full bottom-10 left-7">
+				<Link href="/edit-note">
+					<View className="py-6 w-full bg-accent rounded-xl">
+						<Text className="font-nunito-black text-xl text-surface-light text-center">
+							Create A Note
+						</Text>
+					</View>
+				</Link>
 
 				<Pressable className="mt-5">
 					<Text className="font-nunito-extra-bold text-accent text-[16px] text-center">

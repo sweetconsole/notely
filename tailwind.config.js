@@ -6,7 +6,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				"nunito-black": ["NunitoBlack"],
+				"nunito-black": ["Nunito-Black"],
 				"nunito-extra-bold": ["Nunito-ExtraBold"],
 				"nunito-bold": ["Nunito-Bold"],
 				"nunito-semi-bold": ["Nunito-SemiBold"],
@@ -15,6 +15,7 @@ module.exports = {
 			colors: {
 				background: "var(--color-background)",
 				surface: "var(--color-surface)",
+				"surface-light": "var(--color-surface-light)",
 				text: "var(--color-text)",
 				primary: "var(--color-primary)",
 				accent: "var(--color-accent)",
